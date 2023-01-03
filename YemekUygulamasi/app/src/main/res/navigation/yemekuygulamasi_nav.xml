@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/yemekuygulamasi_nav"
+    app:startDestination="@id/introSayfa">
+
+    <fragment
+        android:id="@+id/introSayfa"
+        android:name="com.example.yemekuygulamasi.ui.fragment.IntroSayfa"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/anasayfa_gecis"
+            app:destination="@id/anasayfa"
+            app:popUpTo="@id/introSayfa"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/anasayfa"
+        android:name="com.example.yemekuygulamasi.ui.fragment.Anasayfa"
+        android:label="fragment_anasayfa"
+        tools:layout="@layout/fragment_anasayfa" >
+        <action
+            android:id="@+id/yemekDetayGecis"
+            app:destination="@id/yemekDetay" />
+        <action
+            android:id="@+id/sepetSayfaGecis"
+            app:destination="@id/sepet" />
+    </fragment>
+    <fragment
+        android:id="@+id/yemekDetay"
+        android:name="com.example.yemekuygulamasi.ui.fragment.YemekDetay"
+        android:label="fragment_yemek_detay"
+        tools:layout="@layout/fragment_yemek_detay" >
+        <action
+            android:id="@+id/DetaySepetGecis"
+            app:destination="@id/sepet" />
+        <argument
+            android:name="yemek"
+            app:argType="com.example.yemekuygulamasi.data.entity.Yemekler" />
+        <action
+            android:id="@+id/DetayAnasayfaGecis"
+            app:destination="@id/anasayfa" />
+    </fragment>
+    <fragment
+        android:id="@+id/sepet"
+        android:name="com.example.yemekuygulamasi.ui.fragment.Sepet"
+        android:label="fragment_sepet"
+        tools:layout="@layout/fragment_sepet" >
+        <action
+            android:id="@+id/sepetDetayGecis"
+            app:destination="@id/yemekDetay"
+            app:popUpTo="@id/yemekDetay"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/sepetAnasayfaGecis"
+            app:destination="@id/anasayfa" />
+        <action
+            android:id="@+id/siparisGecis"
+            app:destination="@id/siparisBasarili" />
+    </fragment>
+    <fragment
+        android:id="@+id/siparisBasarili"
+        android:name="com.example.yemekuygulamasi.ui.fragment.SiparisBasarili"
+        android:label="fragment_siparis_basarili"
+        tools:layout="@layout/fragment_siparis_basarili" />
+</navigation>
